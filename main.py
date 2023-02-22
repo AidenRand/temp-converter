@@ -1,16 +1,18 @@
 from tkinter import *
 from tkinter import font
 
+# Create application window
 root = Tk()
 root.geometry("380x155")
 root.title("Temp converter")
 root.config(bg="#EAEAEA")
 
+# Get user input
 inputFont = font.Font(size=16)
 userInput = Entry(root, width=5, font=inputFont)
 userInput.place(x=60, y=10)
 
-
+# Convert temperature to selected unit
 class Convert:
     def __init__(self, temp):
         self.temp = int(temp)
@@ -23,7 +25,7 @@ class Convert:
         fTemp = (self.temp - 32) * 5 / 9
         return fTemp
 
-
+# Create celcius object
 def create_celc():
     conv = Convert(userInput.get())
     conv.celcius()
@@ -39,7 +41,7 @@ def create_celc():
     outTemp.place(x=190, y=40)
     userInput.delete(0, END)
 
-
+# Create fahrenheit object
 def create_fahrenheit():
     conv = Convert(userInput.get())
     conv.fahrenheit()
@@ -56,6 +58,7 @@ def create_fahrenheit():
     userInput.delete(0, END)
 
 
+# Create fahrenheit and celcius buttons
 btnFont = font.Font(size=16)
 
 cBtn = Button(
