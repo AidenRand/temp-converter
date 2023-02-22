@@ -58,11 +58,23 @@ def create_fahrenheit():
 
 btnFont = font.Font(size=16)
 
-cBtn = Button(root, text="CELCIUS", fg="#2D2D2D", bg='#FAFAFA', font=btnFont, command=create_celc)
+cBtn = Button(
+    root, 
+    text="CELCIUS",
+    fg="#2D2D2D",
+    bg="#FAFAFA",
+    font=btnFont,
+    command=create_celc
+)
 cBtn.place(x=39, y=50)
 
 fBtn = Button(
-    root, text="FAHRENHEIT", fg="#2D2D2D", bg='#FAFAFA', font=btnFont, command=create_fahrenheit
+    root,
+    text="FAHRENHEIT",
+    fg="#2D2D2D",
+    bg="#FAFAFA",
+    font=btnFont,
+    command=create_fahrenheit,
 )
 fBtn.place(x=20, y=100)
 
