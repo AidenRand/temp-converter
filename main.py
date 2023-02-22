@@ -4,7 +4,8 @@ from tkinter import font
 root = Tk()
 root.geometry("200x250")
 
-userInput = Entry(root, width=50)
+inputFont = font.Font(size=16)
+userInput = Entry(root, width=5, font=inputFont)
 userInput.place(x=50, y=10)
 
 class Convert:
@@ -20,13 +21,21 @@ class Convert:
         return fTemp
 
 def create_celc():
-    conv = Convert()
-    conv.celcius(userInput.get())
+    conv = Convert(userInput.get())
+    conv.celcius()
+    tempFont = font.Font(size=26)
+    outTemp = Label(root, text=round(conv.fahrenheit(), 1), width=10, height=3, font=tempFont)
+    outTemp.place(x=0, y=130)
+    userInput.delete(0, END)
 
 
 def create_fahrenheit():
     conv = Convert(userInput.get())
     conv.fahrenheit()
+    tempFont = font.Font(size=26)
+    outTemp = Label(root, text=round(conv.celcius(), 1),width=10, height=3, font=tempFont)
+    outTemp.place(x=0, y=130)
+    userInput.delete(0, END)
 
 cBtn = Button(root, text="CELCIUS", fg="#4A4A4A", command=create_celc)
 cBtn.place(x=20, y=100)
